@@ -415,10 +415,10 @@ enum R {
 ///
 /// Hides actual messages structure so it could be changed without breaking semver policy.
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct ProtocolMessage(M);
+pub struct ProtocolMessage(pub M);
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
-enum M {
+pub enum M {
     Round1(gg_2020::party_i::KeyGenBroadcastMessage1),
     Round2(gg_2020::party_i::KeyGenDecommitMessage1),
     Round3((VerifiableSS<GE>, FE)),
