@@ -91,6 +91,9 @@ impl Round1 {
     pub fn expects_messages(i: u16, n: u16) -> Store<BroadcastMsgs<KeyGenBroadcastMessage1>> {
         containers::BroadcastMsgsStore::new(i, n)
     }
+    pub fn get_keys(&self) -> &Keys {
+        &self.keys
+    }
 }
 
 pub struct Round2 {
