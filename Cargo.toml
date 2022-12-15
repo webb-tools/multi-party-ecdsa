@@ -41,6 +41,11 @@ thiserror = "1.0.23"
 derivative = "2"
 sha2 = "0.9"
 
+[dependencies.paillier]
+git = "https://github.com/webb-tools/rust-paillier"
+package = "kzen-paillier"
+default-features = false
+
 #[dependencies.class_group]
 #version = "0.6"
 #default-features = false
