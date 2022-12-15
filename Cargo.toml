@@ -33,7 +33,7 @@ default = ["curv-kzen/rust-gmp-kzen"]
 subtle = { version = "2" }
 serde = { version = "1.0", features = ["derive"] }
 zeroize = "^1.5"
-curv-kzen = { git = "https://github.com/webb-tools/curv.git" }
+curv-kzen = { version = "0.10.0" }
 centipede = { git = "https://github.com/webb-tools/centipede.git" }
 zk-paillier = {git = "https://github.com/webb-tools/zk-paillier.git", default-features = false }
 round-based = { version = "0.1.4", features = [] }
