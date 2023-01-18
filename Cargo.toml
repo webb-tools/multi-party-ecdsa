@@ -34,15 +34,15 @@ subtle = { version = "2" }
 serde = { version = "1.0", features = ["derive"] }
 zeroize = "^1.5"
 curv-kzen = { version = "0.10.0", default-features = false }
-centipede = { git = "https://github.com/webb-tools/centipede.git", default-features = false }
-zk-paillier = { git = "https://github.com/webb-tools/zk-paillier.git", default-features = false }
+centipede = { git = "https://github.com/zengo-x/centipede.git", default-features = false }
+zk-paillier = { git = "https://github.com/zengo-x/zk-paillier.git", default-features = false }
 round-based = { version = "0.1.4", features = [] }
 thiserror = "1.0.23"
 derivative = "2.2.0"
 sha2 = "0.9"
 
 [dependencies.paillier]
-git = "https://github.com/webb-tools/rust-paillier"
+git = "https://github.com/zengo-x/rust-paillier"
 package = "kzen-paillier"
 default-features = false
 
