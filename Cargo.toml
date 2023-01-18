@@ -42,8 +42,8 @@ derivative = "2.2.0"
 sha2 = "0.9"
 
 [dependencies.paillier]
-git = "https://github.com/zengo-x/rust-paillier"
 package = "kzen-paillier"
+version = "0.4.3"
 default-features = false
 
 #[dependencies.class_group]
