@@ -36,7 +36,7 @@ zeroize = "^1.5"
 curv-kzen = { version = "0.10.0", default-features = false }
 centipede = { git = "https://github.com/zengo-x/centipede.git", default-features = false }
 zk-paillier = { git = "https://github.com/zengo-x/zk-paillier.git", default-features = false }
-round-based = { version = "0.1.4", features = [] }
+round-based = { git = "https://github.com/webb-tools/round-based-protocol", branch = "patch/msg-overwrite", features = [] }
 thiserror = "1.0.23"
 derivative = "2.2.0"
 sha2 = "0.9"
@@ -70,7 +70,7 @@ structopt = "0.3"
 secp256k1 = { version = "0.20", features = ["global-context"]}
 
 thiserror = "1.0.23"
-round-based = { version = "0.1.4", features = ["dev"] }
+round-based = { git = "https://github.com/webb-tools/round-based-protocol", branch = "patch/msg-overwrite", features = ["dev"] }
 
 [[example]]
 name = "gg18_sm_manager"
