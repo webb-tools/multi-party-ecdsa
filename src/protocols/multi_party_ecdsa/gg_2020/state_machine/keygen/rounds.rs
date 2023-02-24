@@ -78,6 +78,12 @@ impl Round1 {
             receiver: None,
             body: self.decom1.clone(),
         });
+        log::info!("MP-ECDSA : Round 1 : keys {:?}", self.keys);
+        log::info!("MP-ECDSA : Round 1 : received_comm", input.into_vec_including_me(self.bc1));
+        log::info!("MP-ECDSA : Round 1 : decom {:?}", self.decom1);
+        log::info!("MP-ECDSA : Round 1 : party_i {:?}", self.party_i);
+        log::info!("MP-ECDSA : Round 1 : t {:?}", self.t);
+        log::info!("MP-ECDSA : Round 1 : n {:?}", self.n);
         Ok(Round2 {
             keys: self.keys,
             received_comm: input.into_vec_including_me(self.bc1),
