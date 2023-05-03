@@ -471,10 +471,9 @@ impl IsCritical for Error {
             Error::ProceedRound(e) => e.is_critical(),
             // These errors are not critical, because they are handled by the protocol
             // and don't indicate a bug in the library.
-            Error::HandleMessage(e) => !matches!(
-                e,
-                StoreErr::MsgOverwrite | StoreErr::NotForMe | StoreErr::WantsMoreMessages
-            ),
+            Error::HandleMessage(e) => {
+                !matches!(e, StoreErr::NotForMe | StoreErr::WantsMoreMessages)
+            }
             Error::ReceivedOutOfOrderMessage { .. } => false,
             Error::DoublePickOutput
             | Error::TooFewParties
