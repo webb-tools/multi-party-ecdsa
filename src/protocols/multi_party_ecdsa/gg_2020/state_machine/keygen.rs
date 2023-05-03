@@ -72,7 +72,6 @@ impl Keygen {
             msgs4: Some(Round4::expects_messages(i, n)),
 
             msgs_queue: vec![],
-
             party_i: i,
             party_n: n,
         };
@@ -425,6 +424,17 @@ enum M {
     Round4(DLogProof<Secp256k1, Sha256>),
 }
 
+impl crate::MessageRoundID for ProtocolMessage {
+    fn round_id(&self) -> u16 {
+        match self.0 {
+            M::Round1(_) => 1,
+            M::Round2(_) => 2,
+            M::Round3(_) => 3,
+            M::Round4(_) => 4,
+        }
+    }
+}
+
 // Error
 
 type Result<T> = std::result::Result<T, Error>;
@@ -471,9 +481,10 @@ impl IsCritical for Error {
             Error::ProceedRound(e) => e.is_critical(),
             // These errors are not critical, because they are handled by the protocol
             // and don't indicate a bug in the library.
-            Error::HandleMessage(e) => {
-                !matches!(e, StoreErr::NotForMe | StoreErr::WantsMoreMessages)
-            }
+            Error::HandleMessage(e) => !matches!(
+                e,
+                StoreErr::MsgOverwrite | StoreErr::NotForMe | StoreErr::WantsMoreMessages
+            ),
             Error::ReceivedOutOfOrderMessage { .. } => false,
             Error::DoublePickOutput
             | Error::TooFewParties
