@@ -5,7 +5,7 @@ pub trait RoundBlame {
     fn round_blame(&self) -> (u16, Vec<u16>);
 }
 
-pub trait MessageRoundID {
+pub trait MessageRoundID: Clone {
     /// Returns a round id of the message
     fn round_id(&self) -> u16;
 }
