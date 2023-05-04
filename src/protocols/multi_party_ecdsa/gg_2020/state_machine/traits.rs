@@ -6,6 +6,6 @@ pub trait RoundBlame {
 }
 
 pub trait MessageRoundID: Clone {
-    /// Returns a round id of the message
+    /// Returns the round id of the message
     fn round_id(&self) -> u16;
 }
