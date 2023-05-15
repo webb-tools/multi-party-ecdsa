@@ -12,7 +12,7 @@ use paillier::{Decrypt, Encrypt};
 use paillier::{EncryptionKey, RawCiphertext, RawPlaintext};
 use round_based::containers::push::Push;
 use round_based::containers::{self, BroadcastMsgs, MessageStore, P2PMsgs, P2PMsgsStore, Store};
-use round_based::Msg;
+use round_based::{IsCritical, Msg};
 use zk_paillier::zkproofs::DLogStatement;
 
 use crate::protocols::multi_party_ecdsa::gg_2018::VerifiableSS;
@@ -120,6 +120,10 @@ impl Round2 {
             share_count: self.n,
         };
         let received_decom = input.into_vec_including_me(self.decom);
+
+        log::info!("MP-ECDSA : Round 2 : threshold {:?}", params.threshold);
+        log::info!("MP-ECDSA : Round 2 : share_count {:?}", params.share_count);
+        log::info!("MP-ECDSA : Round 2 : received_decom {:?}", received_decom);
 
         let vss_result = self
             .keys
@@ -364,4 +368,10 @@ pub enum ProceedError {
     Round3VerifyVssConstruct(ErrorType),
     #[error("round 4: verify dlog proof: {0:?}")]
     Round4VerifyDLogProof(ErrorType),
+}
+
+impl IsCritical for ProceedError {
+    fn is_critical(&self) -> bool {
+        true
+    }
 }
