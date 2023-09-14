@@ -24,5 +24,4 @@ mod test;
 pub struct ErrorType {
     pub error_type: String,
     pub bad_actors: Vec<usize>,
-    pub data: Vec<u8>,
 }
