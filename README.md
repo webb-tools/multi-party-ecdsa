@@ -3,6 +3,12 @@
 [![Build Status](https://travis-ci.com/ZenGo-X/multi-party-ecdsa.svg?branch=master)](https://travis-ci.com/zengo-x/multi-party-ecdsa)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
+## Deprecated
+
+This repository has now been merged into the [cggmp-threshold-ecdsa repository](https://github.com/webb-tools/cggmp-threshold-ecdsa/) and any improvements and updates will happen there. Consider this repository deprecated.
+
+---
+
 This project is a Rust implementation of {t,n}-threshold ECDSA (elliptic curve digital signature algorithm).
 
 Threshold ECDSA includes two protocols:
